@@ -35,7 +35,7 @@ document.querySelector('#app').innerHTML = `
           <p>With hands-on experience in real-world projects and internships, I love turning ideas into clean, intuitive digital experiences that feel purposeful and easy to use.</p>
         </div>
         <div class="about-image">
-          <img src="/Swetha.jpeg" alt="Profile">
+          <img src="/Swetha.jpeg">
         </div>
       </div>
     </section>
