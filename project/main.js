@@ -45,20 +45,73 @@ document.querySelector('#app').innerHTML = `
       <div class="skills-container">
         <h2>MY SKILLS</h2>
         <div class="skills-grid">
-          <span class="skill-tag">HTML</span>
-          <span class="skill-tag">CSS</span>
-          <span class="skill-tag">JAVASCRIPT</span>
-          <span class="skill-tag">PYTHON</span>
-          <span class="skill-tag">C</span>
-          <span class="skill-tag">C++</span>
-          <span class="skill-tag">GIT</span>
-          <span class="skill-tag">JAVA</span>
-          <span class="skill-tag">MYSQL</span>
-          <span class="skill-tag">FAISS embeddings</span>
-          <span class="skill-tag">LangChain</span>
-          <span class="skill-tag">APIs</span>
-          <span class="skill-tag">FIGMA</span>
-        </div>
+
+  <div class="skill-card">
+    <div class="skill-card-inner">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5">
+      <p class="skill-card-text">HTML/CSS</p>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-inner">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+      <p class="skill-card-text">PYTHON</p>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-inner">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript">
+      <p class="skill-card-text">JAVASCRIPT</p>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-inner">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++">
+      <p class="skill-card-text">C++</p>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-inner">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java">
+      <p class="skill-card-text">JAVA</p>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-inner">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL">
+      <p class="skill-card-text">MYSQL</p>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-inner">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma">
+      <p class="skill-card-text">FIGMA</p>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-inner">
+      <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langchain-color.png" alt="LangChain">
+      <p class="skill-card-text">LANGCHAIN</p>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-inner">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openapi/openapi-original.svg" alt="APIs">
+      <p class="skill-card-text">APIs</p>
+    </div>
+  </div>
+
+
+</div>
+
       </div>
     </section>
 
@@ -179,12 +232,26 @@ function scrollToAbout() {
 // expose for inline onclick in module script
 window.scrollToAbout = scrollToAbout
 
-// Form submission
-document.getElementById('contactForm').addEventListener('submit', (e) => {
-  e.preventDefault()
-  alert('Thank you for your message! I will get back to you soon.')
-  document.getElementById('contactForm').reset()
-})
+// Contact Form EmailJS
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  emailjs.send("service_wnkir47", "template_uyxkqr9", {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  })
+  .then(function() {
+    alert("✅ Message Sent Successfully!");
+    document.getElementById("contactForm").reset();
+  })
+  .catch(function(error) {
+    alert("❌ Error sending message!");
+    console.log(error);
+  });
+});
+
+
 
 // Scroll reveal animations
 const revealEls = document.querySelectorAll('section, .project-card, .skill-tag, .about-image')
